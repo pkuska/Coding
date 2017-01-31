@@ -15,15 +15,19 @@ namespace SPOJ.Tests
             _testAction = testAction;
         }
 
-        protected void InputOutputTest<T>(T[] input, T[] expectedOutput) where T : struct
+        protected void InputOutputTest<T1, T2>(T1[] input, T2[] expectedOutput)
+            where T1 : struct
+            where T2 : struct
             =>
                 InputOutputTest(input.Select(x => x.ToString()).ToArray(),
                     expectedOutput.Select(x => x.ToString()).ToArray());
 
-        protected void InputOutputTest<T>(T[][] input, T[][] expectedOutput) where T : struct
+        protected void InputOutputTest<T1, T2>(T1[][] input, T2[][] expectedOutput)
+            where T1 : struct
+            where T2 : struct
             =>
-        InputOutputTest(input.Select(x => x.Select(y => y.ToString()).ToArray()).ToArray(),
-            expectedOutput.Select(x => x.Select(y => y.ToString()).ToArray()).ToArray());
+                InputOutputTest(input.Select(x => x.Select(y => y.ToString()).ToArray()).ToArray(),
+                    expectedOutput.Select(x => x.Select(y => y.ToString()).ToArray()).ToArray());
 
         protected void InputOutputTest(string[][] input, string[][] expectedOutput)
             =>
