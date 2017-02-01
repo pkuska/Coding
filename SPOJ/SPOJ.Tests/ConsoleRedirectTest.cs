@@ -22,6 +22,7 @@ namespace SPOJ.Tests
 
         private static string Stringify<T>(T value, bool topLevel = true)
         {
+            if (value is string) return value as string;
             if (value is IEnumerable)
                 return string.Join(topLevel ? Environment.NewLine : Separator,
                     (value as IEnumerable).Cast<object>().Select(x => Stringify(x, false)));
