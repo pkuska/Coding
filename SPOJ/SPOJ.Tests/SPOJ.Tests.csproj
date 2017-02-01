@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleRedirectTest.cs" />
+    <Compile Include="Problem346Test.cs" />
     <Compile Include="Problem001Test.cs" />
     <Compile Include="Problem002Test.cs" />
     <Compile Include="Problem042Test.cs" />
