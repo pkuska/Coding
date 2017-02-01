@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
@@ -15,29 +16,17 @@ namespace SPOJ.Tests
             _testAction = testAction;
         }
 
-        protected void InputOutputTest<T1, T2>(T1[] input, T2[] expectedOutput)
-            where T1 : struct
-            where T2 : struct
+        protected void InputOutputTest<T1, T2>(T1 input, T2 expectedOutput)
             =>
-                InputOutputTest(input.Select(x => x.ToString()).ToArray(),
-                    expectedOutput.Select(x => x.ToString()).ToArray());
+                InputOutputTest(Stringify(input), Stringify(expectedOutput));
 
-        protected void InputOutputTest<T1, T2>(T1[][] input, T2[][] expectedOutput)
-            where T1 : struct
-            where T2 : struct
-            =>
-                InputOutputTest(input.Select(x => x.Select(y => y.ToString()).ToArray()).ToArray(),
-                    expectedOutput.Select(x => x.Select(y => y.ToString()).ToArray()).ToArray());
-
-        protected void InputOutputTest(string[][] input, string[][] expectedOutput)
-            =>
-                InputOutputTest(input.Select(x => string.Join(Separator, x)).ToArray(),
-                    expectedOutput.Select(x => string.Join(Separator, x)).ToArray());
-
-        protected void InputOutputTest(string[] input, string[] expectedOutput)
-            =>
-                InputOutputTest(string.Join(Environment.NewLine, input),
-                    string.Join(Environment.NewLine, expectedOutput));
+        private static string Stringify<T>(T value, bool topLevel = true)
+        {
+            if (value is IEnumerable)
+                return string.Join(topLevel ? Environment.NewLine : Separator,
+                    (value as IEnumerable).Cast<object>().Select(x => Stringify(x, false)));
+            return value.ToString();
+        }
 
         protected void InputOutputTest(string input, string expectedOutput)
         {
