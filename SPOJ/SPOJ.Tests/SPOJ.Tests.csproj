@@ -45,6 +45,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SPOJ\SPOJ.csproj">
@@ -54,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleRedirectTest.cs" />
+    <Compile Include="Problem024Test.cs" />
     <Compile Include="Problem346Test.cs" />
     <Compile Include="Problem001Test.cs" />
     <Compile Include="Problem002Test.cs" />
