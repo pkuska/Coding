@@ -36,7 +36,7 @@ namespace SPOJ.Tests
                 Console.SetIn(reader);
                 Console.SetOut(writer);
                 _testAction();
-                Assert.That(expectedOutput.Trim(), Is.EqualTo(writer.ToString().Trim()));
+                Assert.That(writer.ToString().Trim(), Is.EqualTo(expectedOutput.Trim()));
             }
         }
     }
