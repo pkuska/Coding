@@ -9,8 +9,8 @@ namespace SPOJ.Tests
         {
         }
 
-        [TestCase(new object[] { 1, new[] { 5, 3 }, 1, 2, 8, 4, 9 }, 3)]
-        public void MainTest(object[] input, int expectedOutput)
+        [TestCase(new object[] { 3, new[] { 24, 1 }, new[] { 4358, 754 }, new[] { 305, 794 } }, new[] { 34, 1998, 1 })]
+        public void MainTest(object[] input, int[] expectedOutput)
         {
             InputOutputTest(input, expectedOutput);
         }
