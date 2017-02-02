@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SPOJ
 {
-    public class Problem002
+    public class Problem0002
     {
         private const int MaxN = 1000000000;
         public static void Main()

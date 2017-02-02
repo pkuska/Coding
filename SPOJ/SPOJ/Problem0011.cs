@@ -2,7 +2,7 @@
 
 namespace SPOJ
 {
-    public class Problem011
+    public class Problem0011
     {
         public static void Main()
         {

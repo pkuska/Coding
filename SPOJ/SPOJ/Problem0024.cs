@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace SPOJ
 {
-    public class Problem024
+    public class Problem0024
     {
         public static void Main()
         {

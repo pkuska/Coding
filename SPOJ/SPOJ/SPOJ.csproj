@@ -51,14 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Problem004.cs" />
-    <Compile Include="Problem024.cs" />
-    <Compile Include="Problem346.cs" />
-    <Compile Include="Problem042.cs" />
-    <Compile Include="Problem297.cs" />
-    <Compile Include="Problem001.cs" />
-    <Compile Include="Problem002.cs" />
-    <Compile Include="Problem011.cs" />
+    <Compile Include="Problem0001.cs" />
+    <Compile Include="Problem6256.cs" />
+    <Compile Include="Problem0004.cs" />
+    <Compile Include="Problem0024.cs" />
+    <Compile Include="Problem0346.cs" />
+    <Compile Include="Problem0042.cs" />
+    <Compile Include="Problem0297.cs" />
+    <Compile Include="Problem0002.cs" />
+    <Compile Include="Problem0011.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SPOJ
 {
-    public class Problem042
+    public class Problem0042
     {
         public static void Main()
         {

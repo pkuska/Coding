@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SPOJ
 {
-    public class Problem004
+    public class Problem0004
     {
         private const char OpeningBracket = '(';
         private const char ClosingBracket = ')';

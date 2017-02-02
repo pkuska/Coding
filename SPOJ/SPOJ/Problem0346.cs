@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SPOJ
 {
-    public class Problem346
+    public class Problem0346
     {
         private static readonly Dictionary<long, long> Mem = new Dictionary<long, long>();
         public static void Main()

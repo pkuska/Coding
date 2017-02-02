@@ -3,9 +3,9 @@
 namespace SPOJ.Tests
 {
     [TestFixture]
-    public class Problem011Test : ConsoleRedirectFixture
+    public class Problem0011Test : ConsoleRedirectFixture
     {
-        public Problem011Test() : base(Problem011.Main)
+        public Problem0011Test() : base(Problem0011.Main)
         {
         }
 
