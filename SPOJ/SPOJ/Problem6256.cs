@@ -1,46 +1,57 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SPOJ
 {
     public class Problem6256
     {
-        private const int MaxN = 1000000000;
         public static void Main()
         {
-            var t = int.Parse(Console.ReadLine());
-            var ba = new BitArray((int)Math.Sqrt(MaxN) + 1, true);
-            var sqrtN = (int)Math.Sqrt(MaxN);
-            ba[1] = ba[0] = false;
-
-            for (var i = 2; i * i <= sqrtN; ++i)
-                if (ba[i])
-                    for (var j = i * i; j <= sqrtN; j += i)
-                        ba[j] = false;
-
-            var ps = new List<int>();
-
-            for (var i = 2; i <= sqrtN; ++i)
-                if (ba[i]) ps.Add(i);
-
-            for (var i = 0; i < t; ++i)
+            for (var t = int.Parse(Console.ReadLine()); t > 0; --t)
             {
-                var inputLine = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-                var n = inputLine[0];
-                var m = inputLine[1];
-                var qs = ps.Select(p => (p - n % p) % p).ToList();
-                var rba = new BitArray(m - n + 1, true);
-                for (var j = n; j <= sqrtN && j <= m; ++j)
-                    rba[j - n] = ba[j];
-                for (var j = 0; j < qs.Count; ++j)
-                    for (var k = qs[j]; k <= m - n; k += ps[j])
-                        rba[k] = k + n <= sqrtN && ba[k + n];
-                for (var j = 0; j <= m - n; ++j)
-                    if (rba[j]) Console.WriteLine((j + n).ToString());
-                Console.WriteLine();
+                Console.ReadLine();
+                var n = int.Parse(Console.ReadLine());
+                var a = new int[n];
+                for (var i = 0; i < n; ++i) a[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine(Inversions(a, 0, n - 1));
             }
+        }
+
+        private static long Inversions(IList<int> p, int b, int e)
+        {
+            if (b >= e) return 0;
+            return Inversions(p, b, (b + e) / 2) + Inversions(p, (b + e) / 2 + 1, e) + Merge(p, b, e);
+        }
+
+        private static long Merge(IList<int> p, int b, int e)
+        {
+            long r = 0;
+            var t = new int[e - b + 1];
+            var inv = 0;
+            for (int i = b, j = (b + e) / 2 + 1; i <= (b + e) / 2 || j <= e;)
+            {
+                var c = i - b + j - (b + e) / 2 - 1;
+                if (i > (b + e) / 2) t[c] = p[j++];
+                else if (j > e)
+                {
+                    t[c] = p[i++];
+                    r += inv;
+                }
+                else if (p[i] > p[j])
+                {
+                    t[c] = p[j++];
+                    inv++;
+                }
+                else
+                {
+                    t[c] = p[i++];
+                    r += inv;
+                }
+            }
+
+            for (var i = b; i <= e; ++i) p[i] = t[i - b];
+
+            return r;
         }
     }
 }
