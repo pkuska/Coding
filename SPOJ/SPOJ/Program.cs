@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-            Problem0005.Main();
+            Problem0006.Main();
         }
     }
 }
